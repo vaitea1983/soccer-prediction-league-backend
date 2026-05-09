@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: soccer-prediction-league-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run migrate && npm run seed
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: FOOTBALL_DATA_TOKEN
+        sync: false
+      - key: API_FOOTBALL_KEY
+        sync: false
+      - key: FRONTEND_ORIGIN
+        value: https://soccerpredictionleague.netlify.app
+      - key: APP_PUBLIC_BASE_URL
+        sync: false
